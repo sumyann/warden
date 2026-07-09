@@ -2,7 +2,7 @@
 
 __version__ = "0.1.0"
 
-from .engine import run_scan
+from .engine import run_scan, summarize_findings
 from .identity import suppression_hash
 from .models import Finding, RuleInfo, Scan, ScanSummary
 
@@ -13,5 +13,6 @@ __all__ = [
     "Scan",
     "ScanSummary",
     "run_scan",
+    "summarize_findings",
     "suppression_hash",
 ]

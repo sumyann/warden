@@ -22,7 +22,14 @@ def _dedupe(findings: list[Finding]) -> list[Finding]:
     return out
 
 
-def _summarize(findings: list[Finding]) -> ScanSummary:
+def summarize_findings(findings: list[Finding]) -> ScanSummary:
+    """Compute a ScanSummary (counts, risk score, verdict) from a finding list.
+
+    Public so callers who re-summarize after filtering findings out-of-band
+    (e.g. a hosted app applying a newly-created suppression to an existing
+    stored scan) get the exact same scoring logic run_scan() uses internally,
+    without reaching into a private function.
+    """
     s = ScanSummary()
     for f in findings:
         setattr(s, f.severity.lower(), getattr(s, f.severity.lower()) + 1)
@@ -36,6 +43,10 @@ def _summarize(findings: list[Finding]) -> ScanSummary:
     else:
         s.verdict = "clean"
     return s
+
+
+# Back-compat alias for internal call sites / anyone who imported the old name.
+_summarize = summarize_findings
 
 
 async def run_scan(
