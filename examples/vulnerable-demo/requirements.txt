@@ -1,0 +1,3 @@
+requests
+fastapi>=0.100
+git+https://github.com/x/y

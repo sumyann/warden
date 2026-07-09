@@ -1,0 +1,55 @@
+name: "Warden MCP Scan"
+description: "Static security scan for MCP (Model Context Protocol) servers -- tool poisoning, prompt injection, leaked credentials, over-broad permissions."
+branding:
+  icon: "shield"
+  color: "red"
+
+inputs:
+  path:
+    description: "Path to scan, relative to the repo root."
+    required: false
+    default: "."
+  fail-on:
+    description: "Exit non-zero if any finding meets or exceeds this severity: critical | high | medium | low | none."
+    required: false
+    default: "high"
+  sarif-output:
+    description: "Path to write a SARIF file, for upload via github/codeql-action/upload-sarif."
+    required: false
+    default: "warden-results.sarif"
+  server-name:
+    description: "Label for this scan (shown in output)."
+    required: false
+    default: ${{ github.repository }}
+
+outputs:
+  sarif-file:
+    description: "Path to the generated SARIF file."
+    value: ${{ steps.scan.outputs.sarif-file }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    - name: Install warden
+      shell: bash
+      run: pip install warden-mcp
+
+    - name: Write SARIF report
+      id: scan
+      shell: bash
+      run: |
+        warden scan "${{ inputs.path }}" \
+          --name "${{ inputs.server-name }}" \
+          --output sarif \
+          --output-file "${{ inputs.sarif-output }}" \
+          --fail-on none
+        echo "sarif-file=${{ inputs.sarif-output }}" >> "$GITHUB_OUTPUT"
+
+    - name: Print human-readable summary and enforce fail-on threshold
+      shell: bash
+      run: warden scan "${{ inputs.path }}" --name "${{ inputs.server-name }}" --fail-on "${{ inputs.fail-on }}"

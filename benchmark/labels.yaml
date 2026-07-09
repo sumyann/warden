@@ -1,0 +1,93 @@
+# Warden benchmark — ground truth labels for 8 real, pinned MCP server fixtures.
+#
+# Each server lists two things:
+#   expected: things the scanner MUST find. Each `contains` is a substring
+#             matched against the finding message OR file_path OR snippet.
+#             If a matching finding exists → TP; else → FN (missed).
+#   false_positives: rule/path patterns the scanner MUST NOT emit.
+#             Any finding matching one of these → FP.
+#
+# Labels are conservative — only patterns we've manually verified. Adding
+# labels is easier than tightening rules and directly improves precision/recall
+# transparency. PRs welcome.
+#
+# Fixtures are pinned snapshots (commit SHA + upstream LICENSE) under
+# benchmark/servers/<owner>__<repo>/ — see benchmark/refresh_fixtures.py to
+# re-pin them from each repo's current HEAD.
+#
+# Labeled 2026-02-04. Rescore anytime with:
+#     python benchmark/run_benchmark.py
+
+servers:
+  - server_name: "github/github-mcp-server"
+    expected:
+      - rule: W005
+        contains: "package.json"
+    false_positives:
+      # Docs & internal test fixtures — matches should never be CRITICAL
+      - rule: W003
+        path_contains: "docs/"
+
+  - server_name: "modelcontextprotocol/servers"
+    expected:
+      - rule: W004
+        contains: "subprocess"
+      - rule: W005
+        contains: "package.json"
+    false_positives:
+      - rule: W003
+        path_contains: "README"
+      - rule: W003
+        path_contains: "example"
+
+  - server_name: "mendableai/firecrawl-mcp-server"
+    expected:
+      - rule: W005
+        contains: "package.json"
+    false_positives:
+      - rule: W003
+        path_contains: "README"
+
+  - server_name: "supabase-community/supabase-mcp"
+    expected:
+      - rule: W005
+        contains: "package.json"
+    false_positives:
+      - rule: W003
+        path_contains: "test"
+
+  - server_name: "GLips/Figma-Context-MCP"
+    expected:
+      - rule: W005
+        contains: "package.json"
+    false_positives:
+      - rule: W007
+        path_contains: "test"
+
+  - server_name: "upstash/context7"
+    expected:
+      - rule: W005
+        contains: "package.json"
+    false_positives:
+      - rule: W003
+        path_contains: "docs"
+
+  - server_name: "sooperset/mcp-atlassian"
+    expected:
+      - rule: W004
+        contains: "subprocess"
+      - rule: W005
+        contains: "requirements"
+    false_positives:
+      - rule: W003
+        path_contains: "test"
+      - rule: W006
+        path_contains: "test"
+
+  - server_name: "zcaceres/fetch-mcp"
+    expected:
+      - rule: W002
+        contains: "external"
+      - rule: W005
+        contains: "package.json"
+    false_positives: []

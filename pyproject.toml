@@ -53,6 +53,7 @@ packages = ["src/warden"]
 [tool.ruff]
 line-length = 220
 target-version = "py310"
+extend-exclude = ["benchmark/servers", "examples/vulnerable-demo"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
