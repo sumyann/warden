@@ -1,0 +1,14 @@
+Warden
+Copyright 2026 the Warden Contributors
+
+This product includes software developed by the Warden Contributors
+(https://github.com/OWNER/warden).
+
+Licensed under the Apache License, Version 2.0. See LICENSE for details.
+
+--------------------------------------------------------------------------------
+
+Third-party attributions for redistributed benchmark fixtures live in
+benchmark/servers/<server>/NOTICE.md, one per fixture, each naming its
+upstream project, license, and the exact commit SHA the fixture was pinned
+from.
