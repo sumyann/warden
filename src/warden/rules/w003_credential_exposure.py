@@ -85,4 +85,5 @@ RULE = Rule(
     severity="CRITICAL",
     description="API keys, tokens, or secrets hardcoded in server source or config, or leaking into model-visible context.",
     _check=_check,
+    doc_link=f"{DOCS_BASE}#w003-credential--secret-exposure",
 )

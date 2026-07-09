@@ -66,4 +66,5 @@ RULE = Rule(
     severity="MEDIUM",
     description="Tools or file operations that can be triggered without user-visible consent (auto-execute, confirmation disabled, on-load hooks).",
     _check=_check,
+    doc_link=f"{DOCS_BASE}#w007-covert-invocation-paths",
 )

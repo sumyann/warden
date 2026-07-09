@@ -38,4 +38,5 @@ RULE = Rule(
     severity="HIGH",
     description="Tools that return external, untrusted content (web, files, email) into model context without a trust boundary.",
     _check=_check,
+    doc_link=f"{DOCS_BASE}#w002-indirect-prompt-injection-surface-xpia",
 )

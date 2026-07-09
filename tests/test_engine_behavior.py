@@ -24,6 +24,7 @@ def test_rules_registry_shape():
     assert ids == [f"W00{i}" for i in range(1, 8)]
     for r in ALL_RULES:
         assert r.title and r.severity and r.description
+        assert r.doc_link.startswith("http") and r.id.lower() in r.doc_link.lower()
 
 
 def test_vuln_scan_findings(scan_files):

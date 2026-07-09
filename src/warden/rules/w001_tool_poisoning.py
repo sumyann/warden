@@ -77,4 +77,5 @@ RULE = Rule(
     severity="CRITICAL",
     description="Malicious or manipulative instructions embedded in tool description/metadata fields -- invisible to human review but read as trusted by the model.",
     _check=_check,
+    doc_link=f"{DOCS_BASE}#w001-tool-poisoning",
 )

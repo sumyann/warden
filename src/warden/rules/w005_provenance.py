@@ -163,4 +163,5 @@ RULE = Rule(
     severity="MEDIUM",
     description="Tools pulled from unlocked sources, unpinned dependencies, or manifests without signature/integrity fields.",
     _check=_check,
+    doc_link=f"{DOCS_BASE}#w005-unsigned--unverified-provenance",
 )

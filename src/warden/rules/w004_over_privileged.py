@@ -98,4 +98,5 @@ RULE = Rule(
     severity="HIGH",
     description="Tools requesting filesystem, network, or shell scope broader than their stated function -- least-privilege violations.",
     _check=_check,
+    doc_link=f"{DOCS_BASE}#w004-over-privileged-tools",
 )

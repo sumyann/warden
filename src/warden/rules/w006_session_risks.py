@@ -50,4 +50,5 @@ RULE = Rule(
     severity="HIGH",
     description="Stateful HTTP MCP transports vulnerable to session hijack, shared-session-ID injection, or cross-server contamination.",
     _check=_check,
+    doc_link=f"{DOCS_BASE}#w006-session--multi-server-risks",
 )

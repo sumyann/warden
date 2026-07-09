@@ -45,6 +45,7 @@ class Rule:
     severity: str
     description: str
     _check: CheckFn
+    doc_link: str = ""
 
     def check(self, parsed: ParsedServer) -> list[Finding]:
         return list(self._check(parsed))
