@@ -11,12 +11,7 @@ from dataclasses import dataclass
 
 from ..models import Finding
 
-# ---------------------------------------------------------------------------
-# NOTE(sam): replace OWNER once the public repo exists. If warden.dev turns
-# out to be a domain you actually own and want to use for rule docs instead,
-# swap this constant back — every rule's doc_link is derived from it.
-# ---------------------------------------------------------------------------
-REPO_URL = "https://github.com/OWNER/warden"
+REPO_URL = "https://github.com/sumyann/warden"
 DOCS_BASE = f"{REPO_URL}/blob/main/docs/rules.md"
 
 

@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-git clone https://github.com/OWNER/warden.git
+git clone https://github.com/sumyann/warden.git
 cd warden
 pip install -e ".[dev]"
 pytest -q

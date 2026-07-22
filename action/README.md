@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: OWNER/warden/action@main
+      - uses: sumyann/warden/action@main
         id: warden
         with:
           path: "."

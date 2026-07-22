@@ -39,10 +39,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/OWNER/warden"
-Repository = "https://github.com/OWNER/warden"
-Issues = "https://github.com/OWNER/warden/issues"
-Documentation = "https://github.com/OWNER/warden/blob/main/docs/rules.md"
+Homepage = "https://github.com/sumyann/warden"
+Repository = "https://github.com/sumyann/warden"
+Issues = "https://github.com/sumyann/warden/issues"
+Documentation = "https://github.com/sumyann/warden/blob/main/docs/rules.md"
 
 [project.scripts]
 warden = "warden.cli:app"

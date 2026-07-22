@@ -73,7 +73,7 @@ detection-quality issue -- see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```yaml
 - uses: actions/checkout@v4
-- uses: OWNER/warden/action@main
+- uses: sumyann/warden/action@main
   with:
     fail-on: high
 - uses: github/codeql-action/upload-sarif@v3
