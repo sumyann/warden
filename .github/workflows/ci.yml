@@ -34,9 +34,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: gitleaks scan
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install gitleaks
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz \
+            | tar xz gitleaks
+          sudo mv gitleaks /usr/local/bin/gitleaks
+
+      - name: gitleaks scan (working tree, not git-log diff)
+        # gitleaks-action's default push-event git-log diff mode assumes a
+        # base SHA that predates the repo's own root commit, which breaks
+        # on a fresh history -- scan the checked-out tree directly instead.
+        run: gitleaks detect --source . --no-git --redact -v
