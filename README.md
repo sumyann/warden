@@ -1,5 +1,10 @@
 # Warden
 
+[![CI](https://github.com/sumyann/warden/actions/workflows/ci.yml/badge.svg)](https://github.com/sumyann/warden/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/sumyann/warden/actions/workflows/codeql.yml/badge.svg)](https://github.com/sumyann/warden/actions/workflows/codeql.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
 Scan your MCP server before an agent scans it.
 
 Warden is a static security scanner for [Model Context Protocol](https://modelcontextprotocol.io)

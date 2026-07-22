@@ -10,6 +10,15 @@ pytest -q
 ruff check .
 ```
 
+Optional: install [pre-commit](https://pre-commit.com) to run `ruff`,
+basic hygiene checks, and a gitleaks secrets scan automatically on every
+commit -- the same checks CI enforces, but caught before you push:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
 ## Reporting a missed or incorrect detection
 
 The fastest way to fix a detection-quality issue is a PR, not just a report:

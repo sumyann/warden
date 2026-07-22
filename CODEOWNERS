@@ -1,0 +1,5 @@
+# Default owner for everything in the repo, unless a later match takes
+# precedence. Requires branch protection's "Require review from Code
+# Owners" to actually gate merges -- see the repo's Settings if that's not
+# already on.
+* @sumyann

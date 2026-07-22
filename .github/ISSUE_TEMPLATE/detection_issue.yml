@@ -1,0 +1,52 @@
+name: Missed or incorrect detection
+description: Warden failed to flag a real risk (false negative) or flagged something that isn't one (false positive)
+labels: ["detection-quality"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        See [CONTRIBUTING.md](../../CONTRIBUTING.md#reporting-a-missed-or-incorrect-detection) --
+        a PR with a minimal fixture is the fastest way to get this fixed. This
+        template is for when you can't turn it into a PR yourself.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - False negative (should have fired, didn't)
+        - False positive (fired, shouldn't have)
+    validations:
+      required: true
+
+  - type: input
+    id: rule
+    attributes:
+      label: Rule ID
+      placeholder: "W004"
+    validations:
+      required: true
+
+  - type: textarea
+    id: fixture
+    attributes:
+      label: Minimal reproduction
+      description: The smallest file/snippet that reproduces the issue. This becomes the test fixture.
+      render: python
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs. actual behavior
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Warden version
+      description: Output of `warden version`
+    validations:
+      required: true

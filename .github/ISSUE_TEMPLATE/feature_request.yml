@@ -1,0 +1,31 @@
+name: Feature request
+description: Propose a new rule, CLI flag, or other capability
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proposing a new **detection rule**? Read
+        [docs/rule-authoring.md](../../docs/rule-authoring.md) first --
+        built-in rules need TP/TN fixtures and we're strict about
+        precision. High-recall/low-precision detectors are a better fit
+        as a plugin than a built-in.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
