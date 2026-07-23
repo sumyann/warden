@@ -1,0 +1,8 @@
+# benchmark/servers/ is vendored, commit-pinned upstream source from
+# third-party MCP server repos (see benchmark/refresh_fixtures.py) -- not
+# code we wrote or can fix. Marking it vendored excludes it from GitHub's
+# dependency graph (and thus new Dependabot alerts on its package.json
+# manifests) and from language/diff stats, consistent with the gitleaks
+# allowlist in .gitleaks.toml and the CodeQL paths-ignore in
+# .github/workflows/codeql.yml.
+benchmark/servers/** linguist-vendored
