@@ -24,6 +24,14 @@ jobs:
         with:
           languages: python
           queries: security-extended
+          # benchmark/servers/ is vendored, commit-pinned upstream source from
+          # third-party MCP server repos (see benchmark/refresh_fixtures.py) --
+          # not code we wrote or can fix, same rationale as the gitleaks
+          # allowlist in .gitleaks.toml. examples/vulnerable-demo/ is our own
+          # intentionally-vulnerable fixture, not real shipped code either.
+          paths-ignore:
+            - benchmark/servers/**
+            - examples/vulnerable-demo/**
 
       - uses: github/codeql-action/analyze@v4
         with:
